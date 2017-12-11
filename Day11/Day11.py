@@ -64,5 +64,5 @@ if __name__ == "__main__":
 
     print("(Part 1) Shortest distance to target", shortest_path)
 
-    print(get_largest_distance_ever(path))
+    print("(Part 2) Furthest distance from source", get_largest_distance_ever(path))
 
