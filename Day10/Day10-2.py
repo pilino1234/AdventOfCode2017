@@ -3,7 +3,10 @@ from operator import xor
 
 if __name__ == "__main__":
     with open("input.txt") as f:
-        in_data = [ord(x) for x in f.readline()]
+        in_data = [ord(x) for x in f.readline().strip()]
+
+    # in_data = [ord(x) for x in "102,255,99,252,200,24,219,57,103,2,226,254,1,0,69,216"]
+    # in_data = []
 
     in_data += [17, 31, 73, 47, 23]
 
@@ -25,13 +28,10 @@ if __name__ == "__main__":
 
             skip += 1
 
-    print(proc_list)
-
     dense_hash = []
 
-    for group_start in range(16):
-        group = proc_list[16 * group_start: 16 * group_start + 16]
-        dense_hash.append('%02x'%reduce(xor, group))
+    for group_start in range(0, len(proc_list), 16):
+        group = proc_list[group_start:group_start + 16]
+        dense_hash.append('%02x' % reduce(xor, group))
 
     print(''.join(dense_hash))
-
