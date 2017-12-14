@@ -77,9 +77,9 @@ def count_groups(disk):
             dfs(i-1, j)
         if j > 0:
             dfs(i, j-1)
-        if i < 127:
+        if i < len(disk)-1:
             dfs(i+1, j)
-        if j < 127:
+        if j < len(disk[i])-1:
             dfs(i, j+1)
 
     for i in range(len(disk)):
